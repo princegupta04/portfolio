@@ -1,4 +1,5 @@
-function About() {
+
+export default function About() {
   return (
     <section id="about" className="my-8">
       <h2 className="text-2xl font-bold mb-4">About Me</h2>
