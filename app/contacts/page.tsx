@@ -7,10 +7,24 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic (e.g., send data to a server or email)
-    setIsSubmitted(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    console.log(response);  
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        console.error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   // Handle form input changes
