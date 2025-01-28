@@ -19,6 +19,8 @@ export default function Contact() {
     console.log(response);  
       if (response.ok) {
         setIsSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+
       } else {
         console.error("Failed to send message");
       }
