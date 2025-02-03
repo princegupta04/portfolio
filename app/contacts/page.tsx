@@ -16,7 +16,7 @@ export default function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-    console.log(response);  
+      
       if (response.ok) {
         setIsSubmitted(true);
         setFormData({ name: "", email: "", message: "" });
